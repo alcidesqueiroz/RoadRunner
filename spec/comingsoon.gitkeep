@@ -1,0 +1,13 @@
+APOLOGY
+=======
+
+Roadrunner is being succesfully used for a few months, since its very first version there have been almost no changes.
+Recently (since I'm completely outta time) I made an effort to transform the existing code in a gem, to make it easier to use.
+I confess, once I didn't wrote tests in the very beginning of the development process for this tool (totally my fault), it became harder and harder to have enough time to retroactively cover the code with tests (I know there's not so much code to test, but it doesn't make any difference, due to time availability).
+
+Last, but not least: I really promise, when I have enough time I'll do my homework and cover this tool with tests.
+
+I Hope Roadrunner is useful to you.
+
+Sincerely yours
+Alcides Queiroz - alcidesqueiroz (at) gmail (dot) com

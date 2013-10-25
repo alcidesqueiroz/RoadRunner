@@ -1,0 +1,8 @@
+config:
+  polling_interval: 0.1
+  change_check_strategy: modification_time #You also can use 'checksum'
+  port: 9876
+  files: [
+           ["/relative/path/to/some/css-file.css", "/relative/path/in/your/web-server.css"],
+           "/equivalent/path.css"
+         ]
