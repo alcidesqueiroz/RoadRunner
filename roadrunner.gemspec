@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
 
   #s.files         = `git ls-files`.split($\)
   s.files         = [ ".gitignore", ".rspec",  
-                      "Gemfile", "Gemfile.lock", "LICENSE", 
-                      "README.md", "Rakefile", "doc/.gitkeep", 
+                      "Gemfile", "Gemfile.lock", 
+                      "LICENSE", "README.md", "Rakefile", 
                       "lib/version.rb", "lib/websocket.rb", "src/webserver.rb", 
                       "lib/tasks/register.rake", "lib/os.rb", 
                       "roadrunner-0.3.0.debug.js", "roadrunner.gemspec", 
