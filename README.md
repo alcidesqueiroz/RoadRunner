@@ -49,11 +49,11 @@ But if the paths are different, you can map it easily:
 ```javascript
 <script src="http://localhost:9875/roadrunner.js"></script>
 ```
-4)Open a terminal, "cd" to your project root folder (where roadrunner.yml is located) and run: 
+4) Open a terminal, "cd" to your project root folder (where roadrunner.yml is located) and run: 
 ```
 roadrunner
 ```
-5)Open your application in your browser
+5) Open your application in your browser
 
 License
 -------

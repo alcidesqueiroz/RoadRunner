@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.extensions = ["Rakefile"]
 
   #s.files         = `git ls-files`.split($\)
-  s.files         = [ ".gitignore", ".rspec", ".yardopts", 
+  s.files         = [ ".gitignore", ".rspec",  
                       "Gemfile", "Gemfile.lock", "LICENSE", 
                       "README.md", "Rakefile", "doc/.gitkeep", 
                       "lib/version.rb", "lib/websocket.rb", "src/webserver.rb", 
