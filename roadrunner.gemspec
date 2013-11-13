@@ -12,9 +12,20 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.md"]
   s.summary     = "A live reload command line tool written in ruby."
   s.description = s.summary
+  s.extensions = ["Rakefile"]
 
-  s.files         = `git ls-files`.split($\)
+  #s.files         = `git ls-files`.split($\)
+  s.files         = [ ".gitignore", ".rspec", ".yardopts", 
+                      "Gemfile", "Gemfile.lock", "LICENSE", 
+                      "README.md", "Rakefile", "doc/.gitkeep", 
+                      "lib/version.rb", "lib/websocket.rb", "src/webserver.rb", 
+                      "lib/tasks/register.rake", "lib/os.rb", 
+                      "roadrunner-0.3.0.debug.js", "roadrunner.gemspec", 
+                      "roadrunner.sample.yml", "spec/comingsoon.gitkeep", 
+                      "src/roadrunner.rb", "distr/roadrunner", "distr/roadrunner.bat"]
+
   s.require_paths = ["lib"]
 
+  s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rake", "~> 0.9.2"
 end

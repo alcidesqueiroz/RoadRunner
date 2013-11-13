@@ -1,10 +1,12 @@
 require 'socket'
 require 'yaml'
 require_relative '../lib/websocket'
+require_relative '../lib/version'
+require_relative 'webserver'
 
-class RoadRunner
+module RoadRunner
   def self.root_dir
-     File.expand_path(File.dirname(File.expand_path(__FILE__)))
+     Dir.pwd
   end
 
   def self.config_file
@@ -112,12 +114,13 @@ class RoadRunner
   def self.init_server
     initialization_message
     @@sockets = []
+    Thread.new { RoadRunner::WebServer.init_server }
     Thread.new { monitor_files }
     Thread.abort_on_exception = true
 
     server = WebSocketServer.new(
               :accepted_domains => ["*"],
-              :port => config("port"))
+              :port => config("live_reload_port"))
     loop do
       server.run do |ws|
         @@sockets << ws
@@ -131,7 +134,9 @@ class RoadRunner
   end
 
   def self.initialization_message
-    puts "RoadRunner Live Reload Server is running on port #{config("port")}"
+    puts "Starting Roadrunner #{RoadRunner::VERSION}"
+    puts "RoadRunner Live Reload Server is running on port #{config("live_reload_port")}"
+    puts "RoadRunner Simple Web Server is running on port #{config("web_server_port")}"
     puts "Polling for changes..."
   end
 
@@ -141,6 +146,3 @@ class RoadRunner
     Digest::SHA2.file(file).hexdigest
   end 
 end
-
-
-RoadRunner.init_server

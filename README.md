@@ -14,22 +14,26 @@ Usage
 sudo gem install roadrunner
 ``` 
 
-2) Create a roadrunner.yml file in the root folder of your project. (you can copy the roadrunner.sample.yml file in this repo).
+2) Create a roadrunner.yml file in the root folder of your project by running the command `roadrunner setup`.
+
+Your file structure will look like this:
 ```yaml
 config:
   polling_interval: 0.1
   change_check_strategy: modification_time #You also can use 'checksum'
-  port: 9876
+  live_reload_port: 9876
+  web_server_port: 9875
   files: [
-           ["/webroot/css/main.css", "/yourapp/css/main.css"],
+           ["/relative/path/to/some/css-file.css", "/relative/path/in/your/web-server.css"],
            "/equivalent/path.css"
          ]
+
 ```
-If the relative path to your css file to be monitored in your project folder structure is equal to its URL in web server, you just have to add this to the "files" collection. 
+If the relative path for a file to be monitored in your project folder structure is equal to its URL in web server, you just have to add this path (relative to the root folder) to the "files" collection. 
 
 ```yaml
   files: [
-           "/equivalent/path.css",
+           "/same/path.css",
            ...
          ]
 ```
@@ -41,14 +45,15 @@ But if the paths are different, you can map it easily:
            ...
          ]
 ```
-3) Copy roadrunner-0.1.0.debug.js to some place of your application and add a reference to it in the head tag of your layout/master page/template.
+3) RoadRunner also starts a tiny web server to serve the roadrunner.js script file. So, add a reference to this file in your application layout/template/master page.
 ```javascript
-<script src="/path/to/roadrunner-0.1.0.debug.js"></script>
+<script src="http://localhost:9875/roadrunner.js"></script>
 ```
 4)Open a terminal, "cd" to your project root folder (where roadrunner.yml is located) and run: 
 ```
 roadrunner
 ```
+5)Open your application in your browser
 
 License
 -------

@@ -1,5 +1,5 @@
 --readme README.md
---title 'Documentação da Gem Roadrunner'
+--title 'Roadrunner Gem Docs'
 --charset utf-8
 --markup markdown
 'lib/**/*.rb' - '*.rdoc'
