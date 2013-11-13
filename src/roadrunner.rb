@@ -88,9 +88,13 @@ module RoadRunner
     loop do
       sleep polling_interval
       @@files_to_monitor.each do |file_hash|
-        file = File.open(file_hash[:absolute_path])
-        checker.call file, file_hash
-        file.close
+        begin
+          file = File.open(file_hash[:absolute_path])
+          checker.call file, file_hash
+          file.close
+        rescue
+          puts "/!\\ Could not found the file #{file_hash[:absolute_path]} "
+        end
       end
     end
   end
@@ -134,7 +138,7 @@ module RoadRunner
   end
 
   def self.initialization_message
-    puts "Starting Roadrunner #{RoadRunner::VERSION}"
+    puts "Starting Roadrunner #{RoadRunner::VERSION} (ctrl-c to exit)"
     puts "RoadRunner Live Reload Server is running on port #{config("live_reload_port")}"
     puts "RoadRunner Simple Web Server is running on port #{config("web_server_port")}"
     puts "Polling for changes..."
