@@ -14,8 +14,18 @@ module RoadRunner
   end
 
   def self.config key=nil
-    @@config ||= YAML.load_file(config_file)["config"]
-    parse_config_key key
+    unless defined? @@config
+      begin
+        @@config = YAML.load_file(config_file)["config"]
+        parse_config_key key
+      rescue
+        puts "Could not found the roadrunner.yml configuration file."
+        puts "To create a new configuration file run 'roadrunner setup', then edit the generated file."
+        puts "Finishing a little early =("
+        abort
+      end
+    end
+    @@config
   end
 
   def self.parse_config_key key
