@@ -11,7 +11,7 @@ Usage
 --------------------
 1) Run:
 ```ruby
-sudo gem install roadrunner
+sudo gem install roadrunner-live-reload
 ``` 
 
 2) Create a roadrunner.yml file in the root folder of your project by running the command `roadrunner setup`.

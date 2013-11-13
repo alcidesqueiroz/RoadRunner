@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "version"
 
 Gem::Specification.new do |s|
-  s.name        = "roadrunner"
+  s.name        = "roadrunner-live-reload"
   s.version     = RoadRunner::VERSION.dup
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Alcides Queiroz Aguiar"]
