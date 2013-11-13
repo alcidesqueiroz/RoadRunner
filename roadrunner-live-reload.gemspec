@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
                       "LICENSE", "README.md", "Rakefile", 
                       "lib/version.rb", "lib/websocket.rb", "src/webserver.rb", 
                       "lib/tasks/register.rake", "lib/os.rb", 
-                      "roadrunner-0.3.0.debug.js", "roadrunner.gemspec", 
+                      "roadrunner-0.3.0.debug.js", "roadrunner-live-reload.gemspec", 
                       "roadrunner.sample.yml", "spec/comingsoon.gitkeep", 
                       "src/roadrunner.rb", "distr/roadrunner", "distr/roadrunner.bat"]
 
