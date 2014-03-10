@@ -17,7 +17,6 @@ module RoadRunner
     unless defined? @@config
       begin
         @@config = YAML.load_file(config_file)["config"]
-        parse_config_key key
       rescue
         puts "Could not found the roadrunner.yml configuration file."
         puts "To create a new configuration file run 'roadrunner setup', then edit the generated file."
@@ -25,7 +24,7 @@ module RoadRunner
         abort
       end
     end
-    @@config
+    parse_config_key key
   end
 
   def self.parse_config_key key
