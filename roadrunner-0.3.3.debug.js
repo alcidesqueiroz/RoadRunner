@@ -20,8 +20,8 @@
     socket.onmessage = function(msg){  
       var msgJSON = JSON.parse(msg["data"]);
       rr.resolveChange(msgJSON)
-    } 
-  }
+    }; 
+  };
 
   /**
    * Split a file path in path, file and extension 
@@ -51,7 +51,7 @@
    */
   var _warn = function(msg){
     console.warn("RoadRunner:", msg);
-  }
+  };
 
   /**
    * Resolve changes depending on file type
@@ -89,7 +89,7 @@
     }
     resolver.resolve(URLparts);
     _warn("The file \"" + URLparts.fullPath + "\" has changed at " + msg.modified_at + ".");
-  }
+  };
 
   /**
    * Generic strategy to resolve static files changes, 
@@ -100,7 +100,7 @@
   var GenericResolver = {};
   GenericResolver.resolve = function(URLparts){
     location.reload(true);
-  }
+  };
 
   /**
    * Strategy to resolve CSS files changes, 
@@ -120,7 +120,7 @@
 
       }
     }
-  }
+  };
       
   RoadRunner.listen();
 })(window);
